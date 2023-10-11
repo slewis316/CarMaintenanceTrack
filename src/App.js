@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import { UserProvider } from "./contexts/userContext";
 import Home from "./pages/homePage";
 import Login from "./pages/loginPage";
@@ -26,7 +26,7 @@ function App() {
             <Route path='/homePage' exact element={<Home />} />
             <Route path='/addNew' element={<AddNew />} />
             <Route path='/userAppointments' element={<UserAppointments /> } />
-            <Route path='/editAppointments' element={ <EditAppointment /> } />
+            <Route path='/editAppointment' element={ <EditAppointment /> } />
           </Route>
        </Routes>
      </UserProvider>

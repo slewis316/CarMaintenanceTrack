@@ -44,9 +44,6 @@ const Navbar = () => {
           <NavLink to='/userAppointments' activeStyle>
             My Appointments
           </NavLink>
-          <NavLink to='/editAppointments' activeStyle>
-            Edit Appointments
-          </NavLink>
           <NavLink to='/signupPage' activeStyle>
             Sign Up
           </NavLink>

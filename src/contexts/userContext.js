@@ -8,10 +8,14 @@ const app = new App(APP_ID);
 // Creating a user context to manage and access all the user related functions
 // across different components and pages.
 export const UserContext = createContext();
- 
+
+
 export const UserProvider = ({ children }) => {
  const [user, setUser] = useState(null);
+ // creating a variable to store userID for use later while loggged in
  const [userID, setUserID] = useState();
+ // creating a variable to store appointment ID for update page
+ const [updateAppointmentID, setUpdateAppointmentID] = useState();
  
  // Function to log in user into our App Service app using their email & password
  const emailPasswordLogin = async (email, password) => {
@@ -34,7 +38,7 @@ export const UserProvider = ({ children }) => {
      throw error;
    }
  };
- 
+
  // Function to fetch the user (if the user is already logged in) from local storage
  const fetchUser = async () => {
    if (!app.currentUser) return false;
@@ -43,6 +47,7 @@ export const UserProvider = ({ children }) => {
      // Now, if we have a user, we are setting it to our user context
      // so that we can use it in our app across different components.
      setUser(app.currentUser);
+     setUserID(app.currentUser.id);
      //setUserID(app.currentUser.);
      return app.currentUser;
    } catch (error) {
@@ -63,7 +68,8 @@ export const UserProvider = ({ children }) => {
    }
  }
  
- return <UserContext.Provider value={{ user, userID, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser }}>
+ return <UserContext.Provider value={{ user, userID, setUser, fetchUser, emailPasswordLogin, emailPasswordSignup, logOutUser, 
+                                       updateAppointmentID, setUpdateAppointmentID }}>
    {children}
  </UserContext.Provider>;
 }

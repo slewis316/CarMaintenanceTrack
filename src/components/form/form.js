@@ -22,7 +22,8 @@ import axios from "axios";
   const Submit = () => {
     axios.post('http://localhost:3002/createAppointment', {carModel, maintenanceType, autoShop, lastAptDate, nextAptDate, userID})
     .then((appointments) => {
-      console.log(appointments)
+      console.log(appointments);
+      window.location.reload();
     }).catch(err => console.log(err))
 }
 
